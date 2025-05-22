@@ -1,0 +1,23 @@
+[project]
+name = "representational_analysis"
+version = "0.1.2"
+description = "Feature analyzer for LLM"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{ name = "XiaoyuXu", email = "xuxiaoyu200@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "torch",
+    "transformers",
+    "datasets",
+    "matplotlib",
+    "scikit-learn",
+    "pandas"
+]
+
+[project.scripts]
+representational_analysis = "representational_toolkit.analysis:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
