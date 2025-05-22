@@ -25,30 +25,80 @@ pip install representational-analysis
 ````
 
 ---
+````markdown
 ## 🛠️ Python API
 
 Import and call the unified function directly:
 
 ```python
-from representational_toolkit.analysis import run_analysis
+from representational_toolkit.analysis import run_feature_analysis
 
-texts = [
+query = [
     "The quick brown fox jumps over the lazy dog.",
     "Unlearning LLMs is an active area of research."
 ]
+````
 
-# Example: run CKA
-run_analysis(
-    feature="cka",
+### 1) Fisher Information
+
+```python
+run_feature_analysis(
+    feature="fim",
     model_reference_path="Qwen/Qwen2.5-7B",
     model_path="./checkpoints/patched",
-    texts=texts,
-    output_path="cka_result.pdf",
+    query=query,
+    output_path="./fim_output",   # directory for per-layer PDFs
+    device="cuda",
     batch_size=4,
     num_batches=10,
     max_length=128
 )
 ```
+
+### 2) PCA Shift (Δ PC1 vs. PC2)
+
+```python
+run_feature_analysis(
+    feature="pca_shift",
+    model_reference_path="Qwen/Qwen2.5-7B",
+    model_path="./checkpoints/patched",
+    query=query,
+    output_path="./pca_shift.pdf",  # single PDF
+    device="cuda",
+    max_length=128
+)
+```
+
+### 3) PCA Cosine Similarity of PC1
+
+```python
+run_feature_analysis(
+    feature="pca_sim",
+    model_reference_path="Qwen/Qwen2.5-7B",
+    model_path="./checkpoints/patched",
+    query=query,
+    output_path="./pca_sim.pdf",    # single PDF
+    device="cuda",
+    max_length=128
+)
+```
+
+### 4) Layer-wise CKA
+
+```python
+run_feature_analysis(
+    feature="cka",
+    model_reference_path="Qwen/Qwen2.5-7B",
+    model_path="./checkpoints/patched",
+    query=query,
+    output_path="./cka.pdf",        # single PDF
+    device="cuda",
+    batch_size=4,
+    num_batches=10,
+    max_length=128
+)
+```
+
 
 ---
 
