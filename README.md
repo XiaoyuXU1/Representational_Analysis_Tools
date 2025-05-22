@@ -56,8 +56,9 @@ run_feature_analysis(
 )
 ```
 <p align="center">
-  <img src="Figures/fim/fim_layer_1.png" alt="Overview Diagram" width="800" />
+  <img src="Figures/fim/fim_layer_1.png" alt="Overview Diagram" width=700" />
 </p>
+
 ### 2) PCA Shift (Δ PC1 vs. PC2)
 
 ```python
@@ -72,8 +73,9 @@ run_feature_analysis(
 )
 ```
 <p align="center">
-  <img src="Figures/pca_shift.png" alt="Overview Diagram" width="800" />
+  <img src="Figures/pca_shift.png" alt="Overview Diagram" width="700" />
 </p>
+
 ### 3) PCA Cosine Similarity of PC1
 
 ```python
@@ -88,8 +90,9 @@ run_feature_analysis(
 )
 ```
 <p align="center">
-  <img src="Figures/pca_sim.png" alt="Overview Diagram" width="800" />
+  <img src="Figures/pca_sim.png" alt="Overview Diagram" width="700" />
 </p>
+
 ### 4) Layer-wise CKA
 
 ```python
@@ -106,7 +109,7 @@ run_feature_analysis(
 )
 ```
 <p align="center">
-  <img src="Figures/cka.png" alt="Overview Diagram" width="800" />
+  <img src="Figures/cka.png" alt="Overview Diagram" width="700" />
 </p>
 
 ---
