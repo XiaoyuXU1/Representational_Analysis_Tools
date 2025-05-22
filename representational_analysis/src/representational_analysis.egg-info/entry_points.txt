@@ -1,2 +1,0 @@
-[console_scripts]
-representational_analysis = representational_toolkit.analysis:main
