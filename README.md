@@ -1,7 +1,6 @@
 # Representational Analysis
 
 [![PyPI version](https://img.shields.io/pypi/v/representational-analysis.svg)](https://pypi.org/project/representational-analysis/)  
-[![Python Version](https://img.shields.io/pypi/pyversions/representational-analysis)]  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 
