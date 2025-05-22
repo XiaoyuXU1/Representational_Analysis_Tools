@@ -58,7 +58,7 @@ run_feature_analysis(
     model_reference_path="Qwen/Qwen2.5-7B",
     model_path="./checkpoints/patched",
     query=query,
-    output_path="./pca_shift.pdf",  # single PDF
+    output_path="./pca_shift.pdf",  # single PDF or .png
     device="cuda",
     max_length=128
 )
@@ -72,7 +72,7 @@ run_feature_analysis(
     model_reference_path="Qwen/Qwen2.5-7B",
     model_path="./checkpoints/patched",
     query=query,
-    output_path="./pca_sim.pdf",    # single PDF
+    output_path="./pca_sim.pdf",    # single PDF or .png
     device="cuda",
     max_length=128
 )
@@ -86,7 +86,7 @@ run_feature_analysis(
     model_reference_path="Qwen/Qwen2.5-7B",
     model_path="./checkpoints/patched",
     query=query,
-    output_path="./cka.pdf",        # single PDF
+    output_path="./cka.pdf",        # single PDF or .png
     device="cuda",
     batch_size=4,
     num_batches=10,
