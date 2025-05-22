@@ -12,7 +12,7 @@ Supports:
 - **Layer-wise CKA** (Centered Kernel Alignment)  
 
 ---
-![](Figures)
+![](Figures/cka.pdf)
 ## 🔧 Installation
 
 ```bash
