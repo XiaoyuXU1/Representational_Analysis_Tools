@@ -1,7 +1,7 @@
-# Feature_analysis_to# Feature Analyzer
+# Representational Analysis
 
-[![PyPI version](https://img.shields.io/pypi/v/feature_analyzer.svg)](https://pypi.org/project/feature_analyzer/)  
-[![Python Version](https://img.shields.io/pypi/pyversions/feature_analyzer)]  
+[![PyPI version](https://img.shields.io/pypi/v/representational_analysis.svg)](https://pypi.org/project/representational_analysis/)  
+[![Python Version](https://img.shields.io/pypi/pyversions/representational_analysis)]  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A unified toolkit for analyzing representational changes in large language models (LLMs).  
@@ -18,10 +18,9 @@ Supports:
 
 ```bash
 # From PyPI
-pip install feature_analyzer
+pip install representational_analysis
 
-# Or install editable from source
-git clone https://github.com/yourusername/feature_analyzer.git
-cd feature_analyzer
+# Install editable from GitHub
+git clone https://github.com/yourusername/representational_analysis.git
+cd representational_analysis
 pip install -e .
-ols
