@@ -21,7 +21,6 @@ pip install representational-analysis
 ````
 
 ---
-````markdown
 ## 🛠️ Python API
 
 Import and call the unified function directly:
