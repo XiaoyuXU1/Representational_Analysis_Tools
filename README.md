@@ -12,7 +12,10 @@ Supports:
 - **Layer-wise CKA** (Centered Kernel Alignment)  
 
 ---
-![](Figures/cka.pdf)
+<p align="center">
+  <a href="Figures/cka.pdf">📄 View the full PDF overview</a>
+</p>
+![over]()
 ## 🔧 Installation
 
 ```bash
