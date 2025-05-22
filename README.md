@@ -17,19 +17,13 @@ Supports:
 
 ```bash
 # From PyPI
-pip install representational_analysis
+pip install representational-analysis
 
 ````
 
 ---
 
-## 🚀 Command-Line Usage
 
-A console script `representational_analysis` is provided. Run:
-
-```bash
-representational_analysis --help
-```
 
 ### Examples
 
@@ -119,12 +113,10 @@ run_analysis(
 ```
 representational_analysis/
 ├── pyproject.toml
-├── README.md
-├── LICENSE
 └── src/
     └── representational_toolkit/
         ├── __init__.py
-        ├── analysis.py         # CLI & `run_analysis()` entry point
+        ├── analysis.py         # `run_analysis()` entry point
         ├── fim_analysis.py     # Fisher Information
         ├── pca_shift_analysis.py
         ├── pca_sim_analysis.py
