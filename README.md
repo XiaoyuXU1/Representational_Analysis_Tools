@@ -107,8 +107,8 @@ representational_analysis/
         ├── __init__.py
         ├── analysis.py         # `run_analysis()` entry point
         ├── fim_analysis.py     # Fisher Information
-        ├── pca_shift_analysis.py
-        ├── pca_sim_analysis.py
+        ├── pca_shift_analysis.py #PCA Shift
+        ├── pca_sim_analysis.py   #PCA Similarity
         └── cka_analysis.py     # Layer-wise CKA
 ```
 
