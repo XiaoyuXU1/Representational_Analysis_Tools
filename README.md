@@ -1,8 +1,9 @@
 # Representational Analysis
 
-[![PyPI version](https://img.shields.io/pypi/v/representational_analysis.svg)](https://pypi.org/project/representational_analysis/)  
-[![Python Version](https://img.shields.io/pypi/pyversions/representational_analysis)]  
+[![PyPI version](https://img.shields.io/pypi/v/representational-analysis.svg)](https://pypi.org/project/representational-analysis/)  
+[![Python Version](https://img.shields.io/pypi/pyversions/representational-analysis)]  
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 
 A unified toolkit for analyzing representational changes in large language models (LLMs).  
 Supports:
