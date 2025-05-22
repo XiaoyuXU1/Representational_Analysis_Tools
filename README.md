@@ -19,10 +19,6 @@ Supports:
 # From PyPI
 pip install representational_analysis
 
-# Install editable from GitHub
-git clone https://github.com/yourusername/representational_analysis.git
-cd representational_analysis
-pip install -e .
 ````
 
 ---
