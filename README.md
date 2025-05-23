@@ -131,7 +131,7 @@ representational_analysis/
 
 ## 📄 Paper
 
-**Unlearning Isn't Deletion: Investigating Reversibility of Machine Unlearning in LLMs**
+[Unlearning Isn't Deletion: Investigating Reversibility of Machine Unlearning in LLMs](https://arxiv.org/abs/2505.16831)
 
 
 ## 📜 License
