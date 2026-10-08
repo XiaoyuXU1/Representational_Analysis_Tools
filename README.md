@@ -12,7 +12,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a>
 </p>
 
-This is the official toolkit for **[Unlearning Isn't Deletion: Investigating Reversibility of Machine Unlearning in LLMs](https://arxiv.org/abs/2505.16831)**, accepted at **ICML 2026**. It complements task-level metrics with layer-wise measurements that show where and how strongly unlearning, fine-tuning, or model editing changes a model internally.
+This is the official toolkit for **[Unlearning Isn't Deletion: Investigating Reversibility of Machine Unlearning in LLMs](https://arxiv.org/abs/2505.16831)**. It complements task-level metrics with layer-wise measurements that show where and how strongly unlearning, fine-tuning, or model editing changes a model internally.
 
 <p align="center">
   <img src="Figures/Analysis_tool.png" alt="Overview of the representational analysis toolkit" width="800">
