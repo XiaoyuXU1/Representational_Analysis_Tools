@@ -1,7 +1,7 @@
 <h1 align="center">Representational Analysis for LLM Unlearning</h1>
 
 <p align="center">
-  A lightweight toolkit for comparing how a reference language model and an updated model represent the same data.
+  Compare the internal representations of a reference LLM and an updated checkpoint.
 </p>
 
 <p align="center">
@@ -12,19 +12,11 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License"></a>
 </p>
 
-This repository provides the representation-level analysis toolkit introduced in **[Unlearning Isn't Deletion: Investigating Reversibility of Machine Unlearning in LLMs](https://arxiv.org/abs/2505.16831)**, accepted at **ICML 2026**. It helps diagnose whether an intervention such as machine unlearning, fine-tuning, or model editing has genuinely changed a model's internal representations or has only altered its observable behavior.
+This is the official toolkit for **[Unlearning Isn't Deletion: Investigating Reversibility of Machine Unlearning in LLMs](https://arxiv.org/abs/2505.16831)**, accepted at **ICML 2026**. It complements task-level metrics with layer-wise measurements that show where and how strongly unlearning, fine-tuning, or model editing changes a model internally.
 
 <p align="center">
   <img src="Figures/Analysis_tool.png" alt="Overview of the representational analysis toolkit" width="800">
 </p>
-
-## Why representation-level analysis?
-
-Task-level metrics such as accuracy and perplexity can indicate that a model has forgotten a target, but they do not reveal whether the underlying information has been removed or merely suppressed. Comparing the original and updated models at the representation level provides a complementary view of:
-
-- **where** an intervention changes the model;
-- **how strongly** representations and parameter sensitivities move; and
-- **whether** apparently forgotten behavior may remain easy to recover.
 
 ## Analyses
 
@@ -78,104 +70,33 @@ run_feature_analysis(
 )
 ```
 
-Set `feature` to one of `fim`, `pca_shift`, `pca_sim`, or `cka`. For `fim`, `output_path` should be a directory; for the other analyses, it should be an image or PDF filename.
+Change `feature` and `output_path` to select an analysis:
 
-## Examples
+| `feature` | Example `output_path` | Uses `batch_size` and `num_batches` |
+| --- | --- | --- |
+| `fim` | `./outputs/fim` | Yes |
+| `pca_shift` | `./outputs/pca_shift.pdf` | No |
+| `pca_sim` | `./outputs/pca_similarity.pdf` | No |
+| `cka` | `./outputs/cka.pdf` | Yes |
 
-<details>
-<summary><strong>Fisher Information Matrix</strong></summary>
+## Example outputs
 
-```python
-run_feature_analysis(
-    feature="fim",
-    model_reference_path="Qwen/Qwen2.5-7B",
-    model_path="path/to/your/updated-model",
-    query=queries,
-    output_path="./outputs/fim",
-    device="cuda",
-    batch_size=4,
-    num_batches=10,
-    max_length=128,
-)
-```
+<table>
+  <tr>
+    <td align="center"><strong>Fisher information</strong><br><img src="Figures/fim/fim_layer_1.png" alt="Example Fisher information histogram" width="420"></td>
+    <td align="center"><strong>PCA shift</strong><br><img src="Figures/pca_shift.png" alt="Example PCA shift plot" width="420"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>PCA similarity</strong><br><img src="Figures/pca_sim.png" alt="Example PCA cosine similarity plot" width="420"></td>
+    <td align="center"><strong>Layer-wise CKA</strong><br><img src="Figures/cka.png" alt="Example layer-wise CKA plot" width="420"></td>
+  </tr>
+</table>
 
-<p align="center">
-  <img src="Figures/fim/fim_layer_1.png" alt="Example Fisher information histogram" width="700">
-</p>
+## Usage notes
 
-</details>
-
-<details>
-<summary><strong>PCA shift</strong></summary>
-
-```python
-run_feature_analysis(
-    feature="pca_shift",
-    model_reference_path="Qwen/Qwen2.5-7B",
-    model_path="path/to/your/updated-model",
-    query=queries,
-    output_path="./outputs/pca_shift.pdf",
-    device="cuda",
-    max_length=128,
-)
-```
-
-<p align="center">
-  <img src="Figures/pca_shift.png" alt="Example PCA shift plot" width="700">
-</p>
-
-</details>
-
-<details>
-<summary><strong>PCA cosine similarity</strong></summary>
-
-```python
-run_feature_analysis(
-    feature="pca_sim",
-    model_reference_path="Qwen/Qwen2.5-7B",
-    model_path="path/to/your/updated-model",
-    query=queries,
-    output_path="./outputs/pca_similarity.pdf",
-    device="cuda",
-    max_length=128,
-)
-```
-
-<p align="center">
-  <img src="Figures/pca_sim.png" alt="Example PCA cosine similarity plot" width="700">
-</p>
-
-</details>
-
-<details>
-<summary><strong>Layer-wise CKA</strong></summary>
-
-```python
-run_feature_analysis(
-    feature="cka",
-    model_reference_path="Qwen/Qwen2.5-7B",
-    model_path="path/to/your/updated-model",
-    query=queries,
-    output_path="./outputs/cka.pdf",
-    device="cuda",
-    batch_size=4,
-    num_batches=10,
-    max_length=128,
-)
-```
-
-<p align="center">
-  <img src="Figures/cka.png" alt="Example layer-wise CKA plot" width="700">
-</p>
-
-</details>
-
-## Recommended workflow
-
-1. Select a reference checkpoint and an updated checkpoint produced by unlearning, fine-tuning, or another intervention.
-2. Build a representative query set, including target data and suitable retain or control data when relevant.
-3. Run more than one analysis: each metric captures a different aspect of representational change.
-4. Interpret the plots alongside task-level performance and relearning tests rather than as standalone evidence of deletion.
+- Use architecture- and tokenizer-compatible reference and updated checkpoints.
+- Include target, retain, and control examples when constructing the query set.
+- Treat these analyses as complements to behavioral evaluation and relearning tests, not standalone proof of deletion.
 
 ## Project structure
 
@@ -198,7 +119,7 @@ representational_analysis/
 Xiaoyu Xu, Xiang Yue, Yang Liu, Qingqing Ye, Huadi Zheng, Peizhao Hu, Minxin Du, and Haibo Hu<br>
 Accepted at the **43rd International Conference on Machine Learning (ICML 2026)**.
 
-The paper shows that task-level forgetting can be reversible: a model may appear to forget while recovering its original behavior after limited fine-tuning. The proposed analyses characterize this gap through representational drift and help distinguish different forgetting regimes.
+[Paper](https://arxiv.org/abs/2505.16831) · [PDF](https://arxiv.org/pdf/2505.16831)
 
 ```bibtex
 @inproceedings{xu2026unlearning,
